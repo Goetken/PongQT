@@ -9,6 +9,9 @@
 #include <unistd.h>
 #include <QRect>
 #include <bounds.h>
+#include <QLabel>
+#include <QHBoxLayout>
+#include <QWidget>
 
 
 
@@ -16,6 +19,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
 
     //create a scene
     QGraphicsScene *scene = new QGraphicsScene();
@@ -32,9 +36,12 @@ int main(int argc, char *argv[])
     rectBottom->setBrush(Qt::white);
 
     Bounds *leftBound = new Bounds();
+    leftBound->setRect(0,0,1,500);
+    leftBound->setBrush(Qt::white);
 
     Bounds *rightBound = new Bounds();
-
+    rightBound->setRect(499,0,1,500);
+    rightBound->setBrush(Qt::white);
 
 
 
@@ -44,6 +51,8 @@ int main(int argc, char *argv[])
     Enemy * enemy = new Enemy();
     enemy->setRect(0,0,20,100);
     enemy->ball = ball;
+
+    enemy->difficulty = 4;
 
 
 
@@ -61,6 +70,9 @@ int main(int argc, char *argv[])
     scene->addItem(rectTop);
     scene->addItem(rectBottom);
 
+    scene->addItem(leftBound);
+    scene->addItem(rightBound);
+
 
 
     //make the item focusable
@@ -69,15 +81,9 @@ int main(int argc, char *argv[])
 
 
 
-
-
-
-
-
-
     //add a view
 
-    QRect sceneRect = QRect::QRect(0,0,500,500);
+    QRect sceneRect = QRect(0,0,500,500);
     scene->setBackgroundBrush(Qt::black);
     scene->setSceneRect(sceneRect);
     QGraphicsView *view = new QGraphicsView(scene);
@@ -89,16 +95,20 @@ int main(int argc, char *argv[])
     view->show();
 
 
+    QWidget window;
+    window.resize(500,500);
+    window.show();
+    window.setWindowTitle(
+                QApplication::translate("toplevel","Help"));
+    QLabel *label = new QLabel();
+    QHBoxLayout *layout = new QHBoxLayout();
+    label->setText("Move your player by pressing the Up and Down arrow keys.  "
+                   "if the ball turns red, you lose.  If it turns green, you win."
+                   "The game will continue forever until you exit out");
+    label->setWordWrap(true);
+    layout->addWidget(label);
 
-
-
-
-
-
-
-
-
-
+    window.setLayout(layout);
 
 
     return a.exec();
