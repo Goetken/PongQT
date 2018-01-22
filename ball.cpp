@@ -96,32 +96,6 @@ void Ball::move()
     }
 
 
-    //do collision detection
-//    QList<QGraphicsItem *> colliding_items = collidingItems();
-//    for (int i =0;i<colliding_items.size();i++)
-//    {
-//        if (typeid(*(colliding_items[i])) == typeid(Enemy) || typeid(*(colliding_items[i])) == typeid(MyRect) ){
-//            qDebug() << QString::fromStdString("We hit a player");
-//            handleCollision();
-
-//        } else if(typeid(*(colliding_items[i])) == typeid(QGraphicsRectItem)){
-//            qDebug() << QString::fromStdString("We hit a QGraphicsRectItem");
-//            handleCollision();
-
-
-//        }
-//    }
-
-
-
-
-
-//    setPos(x()+this->randX,y()+this->randY);
-//    if(pos().y()+rect().height() <0){
-//        scene()->removeItem(this);
-//        delete this;
-//    }
-
 
 }
 
