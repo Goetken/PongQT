@@ -8,6 +8,7 @@
 #include <QTimer>
 #include <unistd.h>
 #include <QRect>
+#include <bounds.h>
 
 
 
@@ -30,6 +31,12 @@ int main(int argc, char *argv[])
     rectBottom->setRect(0,499,500,1);
     rectBottom->setBrush(Qt::white);
 
+    Bounds *leftBound = new Bounds();
+
+    Bounds *rightBound = new Bounds();
+
+
+
 
     Ball * ball = new Ball();
 
@@ -37,6 +44,9 @@ int main(int argc, char *argv[])
     Enemy * enemy = new Enemy();
     enemy->setRect(0,0,20,100);
     enemy->ball = ball;
+
+
+
 
 
     //add the items to the scene

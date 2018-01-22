@@ -1,6 +1,6 @@
 #include "bounds.h"
 
-bounds::bounds()
+Bounds::Bounds()
 {
 
 }

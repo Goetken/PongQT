@@ -27,11 +27,13 @@ SOURCES += \
         main.cpp \
     myrect.cpp \
     ball.cpp \
-    enemy.cpp
+    enemy.cpp \
+    bounds.cpp
 
 HEADERS += \
     myrect.h \
     ball.h \
-    enemy.h
+    enemy.h \
+    bounds.h
 
 FORMS +=
